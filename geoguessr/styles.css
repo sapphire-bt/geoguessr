@@ -1,0 +1,180 @@
+/* Generic styles / resets */
+:root {
+	--blue-gradient: linear-gradient(transparent, #000), linear-gradient(90deg, #28374c, #221d6c);
+	--yellow: #fecd19;
+}
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: sans-serif;
+}
+h2, h3, p {
+	margin: 0;
+}
+.hide {
+	display: none !important;
+}
+.df {
+	display: flex;
+}
+.fdc {
+	flex-direction: column;
+}
+.aic {
+	align-items: center;
+}
+.jcc {
+	justify-content: center;
+}
+.jcsb {
+	justify-content: space-between;
+}
+.jcse {
+	justify-content: space-evenly;
+}
+.cta {
+	background-color: #6cb928;
+	border-radius: 7px;
+	color: white;
+	cursor: pointer;
+	font-style: italic;
+	font-weight: bold;
+	padding: 10px 30px;
+	text-transform: uppercase;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hover styles */
+@media (hover: hover) {
+	.cta {
+		transition: transform .1s;
+	}
+	.cta:hover {
+		transform: scale(1.05);
+	}
+	#map {
+		opacity: 0.5;
+		transition: opacity .15s;
+	}
+	.location-picker-wrap:hover #map {
+		/* height: 405px; */
+		opacity: 1;
+		/* width: 720px; */
+	}
+}
+.location-picker-wrap {
+	left: 0;
+	position: absolute;
+	top: 0;
+}
+
+/* Panorama / Street View styles */
+#pano {
+	height: 100%;
+}
+#pano [href*="google.com"],
+#pano .gm-style-cc {
+	display: none !important;
+}
+
+/* Mini map / location picker */
+.location-picker-wrap {
+	z-index: 1;
+}
+#map {
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	box-sizing: border-box;
+	height: 270px;
+	width: 480px;
+}
+body.guessed #map {
+	height: calc(100vh - 300px);
+	opacity: 1;
+	width: 100vw;
+}
+body:not(.guessed) #round-results {
+	display: none;
+}
+body.finished #next-round {
+	display: none !important;
+}
+body.finished #view-results {
+	display: block !important;
+}
+#guess-button {
+	background-color: rgba(0, 0, 0, 0.5);
+	bottom: 0;
+	color: white;
+	cursor: pointer;
+	left: 0;
+	padding: 11px 0;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	z-index: 400;
+}
+#round-results {
+	background-image: var(--blue-gradient);
+	height: 300px;
+}
+#round-results > p {
+	margin-bottom: 30px;
+}
+#round-results .round-info {
+	color: white;
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+.guess-amt {
+	color: white;
+	font-size: 20px;
+}
+.guess-score {
+	color: var(--yellow);
+	font-size: 25px;
+	font-style: italic;
+}
+#game-results {
+	background-image: var(--blue-gradient);
+	color: white;
+	height: 300px;
+	padding: 0 2.5%;
+}
+#game-results h2 {
+	margin-bottom: 30px;
+	text-align: center;
+}
+#game-results h3 {
+	margin-bottom: 15px;
+}
+#game-results p {
+	font-size: 15px;
+}
+#game-results p:not(:last-child) {
+	margin-bottom: 5px;
+}
+#game-results .summary {
+	margin: 0 auto 35px;
+}
+#game-results .game-total h3 {
+	color: var(--yellow);
+}
+#game-results .round-info {
+	margin: 0 auto;
+}
+#game-results .round-info:not(:last-child) {
+	margin-right: 130px;
+}
+#game-results .round-location {
+	font-size: 12px;
+}
+#play-again {
+	margin: 0 auto;
+}
